@@ -1,0 +1,162 @@
+@font-face {
+    font-family: 'Arabian Night';
+    src: url('font/ArabianNight-CommercialUsed.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+.hover:hover{
+    background-color: rgb(255, 255, 255);
+    color: brown;
+    transform: translate(5px);
+    transition: 0.5s;
+}
+
+
+.d-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.g{
+    gap: 20px;
+}
+
+body{
+    overflow-x: hidden;
+    width: 100vw;
+    height: 100vh;
+    font-family: sans-serif;
+    background-image: url(/img/pixlr-image-generator-e9eb0686-e051-40ab-b99e-dda51af3d5ac.png);
+    background-position-y:28%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arabian Night', sans-serif;
+    cursor: default;
+    position: relative;
+}
+/* JEU² */
+.plateau{
+    border: solid 1px brown;
+    background-color: rgb(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+    margin-top: 3%;
+    height: 90vh;
+    width: 36vw;
+    color: brown;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2%;
+    margin-left: 0;
+ 
+}
+/* menu choix */
+.titre{
+    font-size: 3em;
+    margin-bottom: 10%;
+    margin-top: 7%;
+}
+.titre2{
+    font-size: 2em;
+    color: brown
+
+}
+
+/* les niveau */
+.facile{
+    margin-top: 10%;
+    color: rgba(255, 255, 255);
+    width: 20vw;
+    height: 10vh;
+    background-color: rgba(50, 109, 95);
+    border-radius: 10px;
+    cursor: pointer;
+}
+.moyen{
+    color: white;
+    width: 20vw;
+    height: 10vh;
+    background-color: rgba(50, 109, 95);
+    border-radius: 10px;
+    cursor: pointer;
+    
+}
+.diffcile{
+    color: white;
+    width: 20vw;
+    height: 10vh;
+    background-color: rgba(50, 109, 95);
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+/* JEUUUU */
+/* ce qui servira a fair disparaite et changer la couleur du plateau */
+/* section du jeu */
+
+.jeuCaché{
+
+    background-color: rgba(50, 109, 95, 0.5)!important;
+    backdrop-filter: blur(20px)!important;
+    height: 90vh;
+    width: 36vw;
+    transform: translateX(200%);
+    /* display: none; */
+    position: absolute;
+    transition: 2s ;
+}
+.plateauJeu{
+    display: flex!important;
+    flex-direction: row!important;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    
+}
+.displayNon{
+    transform: translatex(-200%);
+    transition: 2s;
+
+}
+
+/* menu */
+.menu{
+    position: absolute
+}
+/* jeu */
+.jeu{
+    display: block!important;
+}
+
+.carré{
+    background-color: brown;
+    width: 100px;
+    height: 100px;
+    border: solid 1px black;
+    margin: 10px;
+    
+}
+
+.bg1{
+    background-image: url(/img/pixlr-image-generator-ea04cbe4-13a8-4855-85f4-20aa784d8a54.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.bg2{
+    background-image: url(/img/pixlr-image-generator-67a1db1bdc8466b16cc134c8.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
