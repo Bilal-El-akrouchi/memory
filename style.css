@@ -159,4 +159,8 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
 }
-
+.carré{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
