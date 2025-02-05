@@ -12,44 +12,26 @@ btn.forEach(element => {
     element.addEventListener('click', function() {
         menu.classList.add("displayNon")
         jeuCaché.style = "transform: translateX(0)"
-    
+
     })
 });
 // la fonction pour créer des carte
-function genererCartes(nombreCartes, colonnes) {
-    plateauJeu.innerHTML = '' // Efface les anciennes cartes
-    plateauJeu.style.display = 'grid'
-    plateauJeu.style.gridTemplateColumns = `repeat(${colonnes}, 1fr)` // Définit le nombre de colonnes dynamiquement
-    plateauJeu.style.gap = '10px' // Ajoute un espace entre les cartes
-
-    //:::::::::::::::::::::::::::::::: Calculer la taille des cartes
-    let taillePlateau = plateauJeu.clientWidth // Largeur totale du plateau
-    let tailleCarte = (taillePlateau / colonnes) - 10 // Soustrait l'espace entre les cartes
-
+function creerCartes(nombreCartes) {
     for (let index = 0; index < nombreCartes; index++) {
         const carré = document.createElement('div')
-        carré.classList.add('carré')
-        carré.classList.add('bg1')
-        carré.style.width = `${tailleCarte}px`
-        carré.style.height = `${tailleCarte}px` // Garde un format carré
-
-        if (index % 2 == 0) {
-            carré.classList.add('bg2')
-        }
+        carré.classList.add('carré', 'bg1')
+        
         plateauJeu.append(carré)
+        
     }
 }
-
 // la création de carte en utilisantla fonction
-facile.addEventListener('click', function () {
-    genererCartes(12, 4) 
+facile.addEventListener('click',function () {
+    creerCartes(12)
 })
-
-moyen.addEventListener('click', function () {
-    genererCartes(18, 6) 
+moyen.addEventListener('click',function () {
+    creerCartes(18)
 })
-
-diffcile.addEventListener('click', function () {
-    genererCartes(24, 7) 
+diffcile.addEventListener('click',function () {
+    creerCartes(24)
 })
-// 6 COLONNE DE 4 LIGNE ll

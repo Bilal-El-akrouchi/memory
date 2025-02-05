@@ -48,9 +48,9 @@ body{
 /* JEU² */
 .plateau{
     border: solid 1px brown;
+    border-radius: 30px;
     background-color: rgb(255, 255, 255, 0.1);
     backdrop-filter: blur(20px);
-    border-radius: 30px;
     margin-top: 3%;
     height: 90vh;
     width: 36vw;
@@ -110,6 +110,8 @@ body{
 
     background-color: rgba(50, 109, 95, 0.5)!important;
     backdrop-filter: blur(20px)!important;
+    border: solid 1px brown;
+    border-radius: 30px;
     height: 90vh;
     width: 36vw;
     transform: translateX(200%);
@@ -155,8 +157,3 @@ body{
     background-repeat: no-repeat;
 }
 
-.bg2{
-    background-image: url(/img/pixlr-image-generator-67a1db1bdc8466b16cc134c8.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-}
