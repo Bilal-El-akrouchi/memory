@@ -147,10 +147,13 @@ body{
     width: 100px;
     height: 100px;
     border: solid 1px black;
-    margin: 10px;
-    
+    margin: 10px; 
 }
-
+.carré.retournée {
+    background-color: white;  /* Le fond blanc pour les cartes retournées */
+    color: black; /* Texte visible */
+    border: 1px solid black;
+}
 .bg1{
     background-image: url(/img/pixlr-image-generator-ea04cbe4-13a8-4855-85f4-20aa784d8a54.png);
     background-size: cover;

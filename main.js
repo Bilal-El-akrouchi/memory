@@ -20,10 +20,15 @@ function creerCartes(nombreCartes) {
     for (let index = 0; index < nombreCartes; index++) {
         const carré = document.createElement('div')
         carré.classList.add('carré', 'bg1')
-        
+        if (index%2==0) {
+            carré.classList.add('bg2')
+        }
         plateauJeu.append(carré)
-        
-    }
+        carré.addEventListener('click',function() {
+            carré.style.backgroundImage = "none" // Pour enlever l'image
+            carré.style.backgroundColor = "red" // Pour mettre un fond rouge            
+        })
+    }d
 }
 // la création de carte en utilisantla fonction
 facile.addEventListener('click',function () {
@@ -35,3 +40,5 @@ moyen.addEventListener('click',function () {
 diffcile.addEventListener('click',function () {
     creerCartes(24)
 })
+
+
