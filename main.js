@@ -10,14 +10,17 @@ let laFacile=['a','a','b','b','c','c','d','d','e','e','f','f','g','g']
 let laMoyen=['a','a','b','b','c','c','d','d','e','e','f','f','g','g','h','h','i','i']
 let laDifficile=['a','a','b','b','c','c','d','d','e','e','f','f','g','g','h','h','i','i','j','j','k','k','L','L','M','M']
 let stock=[]
-let compteur=0
+// let compteur=0
+let compte=0
+let compteur= document.querySelector('.compteur')
+let block=false
 
 
 btn.forEach(element => {
     element.addEventListener('click', function() {
         menu.classList.add("displayNon")
         jeuCaché.style = "transform: translateX(0)"
-
+        
     })
 });
 // nota mwa meme on va mélanger le tableau avec sort qui permet d'organiser en fonction de math random pour mélanger
@@ -34,29 +37,41 @@ function creerCartes(nombreCartes,difficulté) {
         console.error("GG TA TROUVER LERREUR");
         return;}
         // (conlol.log erreur c op) !!!!! NOTA BENE
-    for (let index = 0; index < nombreCartes; index++) {
-        const carré = document.createElement('div')
-        carré.classList.add('carré', 'bg1')
-        // pour tocker la valeur de la carte
-        carré.dataset.valeur = difficulté[index] 
-        plateauJeu.append(carré)
-
-        carré.addEventListener('click', function () {
-            carré.style.backgroundImage = "none"
-            carré.style.backgroundColor = "red"
-            carré.textContent = carré.dataset.valeur
-            stock.push(carré)
-            console.log(stock);
-            if (stock.length===2) {
-                console.log('wouhou');
-                setTimeout( vérifierPair, 1000);
-            }
+        for (let index = 0; index < nombreCartes; index++) {
+            const carré = document.createElement('div')
+            carré.classList.add('carré', 'bg1')
+            // pour tocker la valeur de la carte
+            carré.dataset.valeur = difficulté[index] 
+            plateauJeu.append(carré)
             
+            carré.addEventListener('click', function () {
+                if (block) {
+                    return
+                }else{
+                    
+                    carré.style.backgroundImage = "none"
+                    carré.style.backgroundColor = "red"
+                    carré.textContent = carré.dataset.valeur
+                    stock.push(carré)
+                    console.log(stock);
+                    console.log('wouhou');
+                    if (stock.length===2) {
+                        block=true
+                        setTimeout( vérifierPair, 1000);
+                    }
+                    
+                }
+            })
+        }
+    }
+    if (!block ) {
+        document.addEventListener('click', function(event) {
+            event.preventDefault()
+            event.stopPropagation
         })
     }
-}
-// C PARTIT POUR VERIFIER
-// OKAAAAAY LETSGOOOOOOOOOOOOOOOOOOO
+    // C PARTIT POUR VERIFIER
+    // OKAAAAAY LETSGOOOOOOOOOOOOOOOOOOO
 // on se sent developpeur, on se sent- easteregsssszzzzzzzzz JSUIS TROP CONTENT AENDAOIZDNAZIDNZAIDNZADINJ
 // ok bilal ne perd pas le file maintenant il faut quoi 
 // il faut les retourner si c perdu et le garder si c gagner ne pas oublie le bug de la 3eme carte
@@ -68,25 +83,33 @@ function vérifierPair() {
     if (marouane.dataset.valeur === cactus.dataset.valeur) {
         console.log('wouhou x2');
         stock=[]
-        compteur++
-        console.log(compteur.length);
+        compte++
+        compteur.textContent= compte
+        console.log(compte.length);
     }else{
         console.log('nooo');
         stock=[]
-        compteur++
-        console.log(compteur);
+        compte++
+        compteur.textContent= compte
+        console.log(compte);
         marouane.style=`backgroundColor:"",background-image: url(/img/pixlr-image-generator-ea04cbe4-13a8-4855-85f4-20aa784d8a54.png);
-                      background-size: cover;
-                      background-repeat: no-repeat;`
+        background-size: cover;
+        background-repeat: no-repeat;`
         marouane.textContent=""
         cactus.style=`backgroundColor:"",background-image: url(/img/pixlr-image-generator-ea04cbe4-13a8-4855-85f4-20aa784d8a54.png);
-                      background-size: cover;
-                      background-repeat: no-repeat;`
+        background-size: cover;
+        background-repeat: no-repeat;`
         cactus.textContent=""
+        setTimeout(() => {
+            block=false
+        }, 2000);
         
         
-
+        
     }
+    setTimeout(() => {
+        block=false
+    }, 1000);
 }
 // la création de carte en utilisantla fonction
 facile.addEventListener('click',function () {
