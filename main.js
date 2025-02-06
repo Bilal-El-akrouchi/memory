@@ -14,6 +14,9 @@ let stock=[]
 let compte=0
 let compteur= document.querySelector('.compteur')
 let block=false
+let oe=false
+
+
 
 
 btn.forEach(element => {
@@ -32,6 +35,10 @@ laFacile = melangerCartes(laFacile)
 laMoyen = melangerCartes(laMoyen)
 laDifficile = melangerCartes(laDifficile)
 // la fonction pour créer des carte UwU
+
+function start() {
+}
+
 function creerCartes(nombreCartes,difficulté) {
     if (difficulté.length < nombreCartes) {
         console.error("GG TA TROUVER LERREUR");
@@ -58,6 +65,8 @@ function creerCartes(nombreCartes,difficulté) {
                     if (stock.length===2) {
                         block=true
                         setTimeout( vérifierPair, 1000);
+                        start()
+                        oe=true
                     }
                     
                 }
@@ -86,6 +95,9 @@ function vérifierPair() {
         compte++
         compteur.textContent= compte
         console.log(compte.length);
+        setTimeout(() => {
+            block=false
+        }, 1000);
     }else{
         console.log('nooo');
         stock=[]
@@ -102,15 +114,16 @@ function vérifierPair() {
         cactus.textContent=""
         setTimeout(() => {
             block=false
-        }, 2000);
+        }, 1000);
         
         
         
+        setTimeout(() => {
+            block=false
+        }, 1000);
     }
-    setTimeout(() => {
-        block=false
-    }, 1000);
 }
+
 // la création de carte en utilisantla fonction
 facile.addEventListener('click',function () {
     creerCartes(12, laFacile)
